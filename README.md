@@ -1,26 +1,47 @@
-# Lab 1: Thirty-One Day Month
+# ECE 281 Lab 1 Prelab
 
-VHDL template for ECE 281 [Lab 1](https://usafa-ece.github.io/ece281-book/lab/lab1.html)
+## Prelab questions
 
-Targeted toward Digilent Basys3 in Vivado 2024.
+### Truth Table
 
-Tested on Windows 10.
+| Mon | A | B | C | D | Y |
+|-----|---|---|---|---|---|
+| Jan | 0 | 0 | 0 | 1 | 1 |
+| Feb | 0 | 0 | 1 | 0 | 0 |
+| Mar | 0 | 0 | 1 | 1 | 1 |
+| Apr | 0 | 1 | 0 | 0 | 0 |
+| May | 0 | 1 | 0 | 1 | 1 |
+| Jun | 0 | 1 | 1 | 0 | 0 |
+| Jul | 0 | 1 | 1 | 1 | 1 |
+| Aug | 1 | 0 | 0 | 0 | 1 |
+| Sep | 1 | 0 | 0 | 1 | 0 |
+| Oct | 1 | 0 | 1 | 0 | 1 |
+| Nov | 1 | 0 | 1 | 1 | 0 |
+| Dec | 1 | 1 | 0 | 0 | 1 |
+|     | 1 | 1 | 0 | 1 | X |
+|     | 1 | 1 | 1 | 0 | X |
+|     | 1 | 1 | 1 | 1 | X |
+|     | 0 | 0 | 0 | 0 | X |
 
-## Usage
 
-Clone and cd into the directory.
+### Boolean Equation
 
-You should see a `.xpr` file. Open it with Vivado!
+$$
+Y = A(comp)D + AD(comp)
+$$
 
-## GitHub Actions Testbench
+### Digital Simulations
 
-The workflow uses the [setup-ghdl-ci](https://github.com/ghdl/setup-ghdl-ci) GitHub action
-to run a *nightly* build of [GHDL](https://ghdl.github.io/ghdl/).
+In this folder are also Digital templates for you to complete and simulate.  Do not change the file names or the input and output labels in Digital otherwise the autograder will not work.  The autograder will look in the prelab folder for the files.
 
-First, the workflow uses GHDL to **analyze** all `.vhd` files in `src/`.
+Complete all three circuits using the various approaches (generic multiplexer symbol, 74151 multiplexer chip, and a sum of products using and/or logic gates).
 
-Then it **elaborates** `thirtyOneDayMonth_tb` entity.
+You may also wish to run test cases.  The first two rows of the truth table have been added to the Digital simulation files as a test.  You may wish to edit the test to add more rows and fully cover all possible cases but this is not required.
 
-Finally, the workflow **runs** the simulation. If successful then it will quietly exit with a `0` code.
-If any of the `assert` statements fail then GHDL will cease the simulation and exit with non-zero code; this will also cause the workflow to fail.
-Assert statements of other severity levels will be reported, but not fail the workflow.
+## Submission
+
+1. Make sure all prelab files are in this folder
+2. Commit all files
+3. Push to GitHub
+4. Submit to Gradescope
+5. Verify submission
